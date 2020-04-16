@@ -16,19 +16,25 @@ exports.up = function(knex) {
         .unsigned()
         .notNullable()
         .references('id')
-        .inTable('species');
+        .inTable('species')
+        .onDelete('CASCADE')
+        .onUpdate('CASCADE');
   })
   .createTable('zoo_animals', tbl => {
       tbl.integer('zoo_id')
         .unsigned()
         .notNullable()
         .references('id')
-        .inTable('zoo');
+        .inTable('zoo')
+        .onDelete('CASCADE')
+        .onUpdate('CASCADE');
       tbl.integer('animal_id')
         .unsigned()
         .notNullable()
         .references('id')
-        .inTable('animals');
+        .inTable('animals')
+        .onDelete('CASCADE')
+        .onUpdate('CASCADE');
       tbl.primary(['zoo_id', 'animal_id']);
   });
 };
@@ -38,5 +44,5 @@ exports.down = function(knex) {
     .dropTableIfExists('zoo_animals')
     .dropTableIfExists('animals')
     .dropTableIfExists('species')
-    .dropTableIfExists('zoo');
+    .dropTableIfExists('zoos');
 };
