@@ -16,4 +16,32 @@ For the `animals` the client wants to record:
 - list of all the zoos where they have resided.
 
 Determine the database tables necessary to track this information.
+
+### Solution
+
+Tables: Animals, Species, Zoo, Zoo-Animals
+
 Label any relationships between table.
+
+*   Animals (many) <==> Species (one)
+*   Zoo (many) <==> Animals (many)
+
+### Table Details
+
+Zoos:
+- id
+- zoo_name
+- address
+
+Species:
+- id
+- species_name
+
+Animals:
+- id
+- animal_name
+- species_id
+
+Zoo_Animals:
+- zoo_id
+- animal_id
